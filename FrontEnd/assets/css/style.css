@@ -100,7 +100,7 @@ img{
 
 .section{
     padding: 3rem 0 1rem;
-    background-color: white;
+    background-color: #f8d5cc;
 }
 
 .section-title{
@@ -134,15 +134,16 @@ img{
     top: 0;
     left: 0;
     z-index: var(--z-fixed);
-    background-color: var(--first-color-lighten);
+    background-color: var(--first-color);
     box-shadow: 0 2px 4px rgba(0,0,0,.1);
 }
 .nav{
     height: var(--header-height);
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    
 }
 .nav__menu{
     position: fixed;
