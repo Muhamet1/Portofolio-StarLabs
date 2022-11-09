@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using PortofolioStarLabs.Application.Photos;
 using PortofolioStarLabs.Models;
 using PortofolioStarLabs.Persistence;
 
@@ -6,24 +7,45 @@ namespace PortofolioStarLabs.Application.Projects
 {
     public class Post
     {
-        public class Command : IRequest
+        public class Command : IRequest<Result<Project>>
         {
-            public Project Project { get; set; }
+            public string projectTitle { get; set; }
+            public string projectSubTitle { get; set; }
+            public string projectDescription { get; set; }
+            public IFormFile File { get; set; }
         }
 
-        public class Handler : IRequestHandler<Command>
+        public class Handler : IRequestHandler<Command,Result<Project>>
         {
             private readonly ApplicationDbContext _context;
-            public Handler (ApplicationDbContext ctx)
+            private readonly IPhotoAccessor _photoAccessor;
+            public Handler(ApplicationDbContext ctx,IPhotoAccessor photoAccessor)
             {
                 _context = ctx;
-            }
-            public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
-            {
-                _context.Projects.Add(request.Project);
+                _photoAccessor = photoAccessor;
 
-                await _context.SaveChangesAsync();
-                return Unit.Value;
+            }
+
+            public async Task<Result<Project>> Handle(Command request, CancellationToken cancellationToken)
+            {
+                var photoResult = await _photoAccessor.AddPhoto(request.File);
+
+                var project = new Project
+                {
+                    projectTitle = request.projectTitle,
+                    projectSubTitle = request.projectSubTitle,
+                    projectDescription = request.projectDescription,
+                    PhotoNum = photoResult.PublicId,
+                    PhotoUrl = photoResult.Url
+                };
+
+                await _context.Projects.AddAsync(project);
+
+                var success = await _context.SaveChangesAsync() > 0;
+
+                if(success) return Result<Project>.Success(project);
+
+                return Result<Project>.Failure("Problem Registering project");
             }
         }
     }

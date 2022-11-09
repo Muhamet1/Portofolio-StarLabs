@@ -1,6 +1,8 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using PortofolioStarLabs.Application.Photos;
 using PortofolioStarLabs.Application.Projects;
+using PortofolioStarLabs.Infrastructure;
 using PortofolioStarLabs.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,6 +31,8 @@ builder.Services.AddCors(options =>
 
 
 builder.Services.AddMediatR(typeof(Get.Handler).Assembly);
+builder.Services.AddScoped<IPhotoAccessor, PhotoAccessor>();
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("Cloudinary"));
 
 var app = builder.Build();
 

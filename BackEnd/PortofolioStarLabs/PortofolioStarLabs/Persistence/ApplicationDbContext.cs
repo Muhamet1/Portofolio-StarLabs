@@ -9,7 +9,7 @@ namespace PortofolioStarLabs.Persistence
             {
             }
             public DbSet<Project> Projects { get; set; }
-            
-     }
+            public DbSet<Photo> Photos { get; set; }
+    }
     
 }

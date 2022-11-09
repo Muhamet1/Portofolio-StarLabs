@@ -10,8 +10,8 @@ using PortofolioStarLabs.Persistence;
 namespace PortofolioStarLabs.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221108210006_InitialCreateDb")]
-    partial class InitialCreateDb
+    [Migration("20221109142829_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,11 +20,33 @@ namespace PortofolioStarLabs.Migrations
                 .HasAnnotation("ProductVersion", "6.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("PortofolioStarLabs.Models.Photo", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Photos");
+                });
+
             modelBuilder.Entity("PortofolioStarLabs.Models.Project", b =>
                 {
                     b.Property<int>("projectId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    b.Property<string>("PhotoNum")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("PhotoUrl")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("projectDescription")
                         .IsRequired()

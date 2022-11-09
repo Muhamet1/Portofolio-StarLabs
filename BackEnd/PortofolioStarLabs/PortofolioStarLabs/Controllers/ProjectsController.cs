@@ -3,12 +3,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PortofolioStarLabs.Application.Projects;
 using PortofolioStarLabs.Models;
+using static PortofolioStarLabs.Application.Projects.Post;
 
 namespace PortofolioStarLabs.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProjectsController : ControllerBase
+    public class ProjectsController : BaseController
     {
         private readonly IMediator _mediator;
         public ProjectsController (IMediator mediator)
@@ -29,9 +30,9 @@ namespace PortofolioStarLabs.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Project>> Post(Project project)
+        public async Task<ActionResult<Project>> Post([FromForm] Command command)
         {
-            return Ok(await _mediator.Send(new Post.Command { Project = project }));
+            return HandleResult(await _mediator.Send(command));
         }
 
         [HttpPut("{id}")]

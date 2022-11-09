@@ -56,3 +56,4 @@ fetch('https://localhost:7114/api/Projects').then((data)=>{
 }).catch((err)=>{
     console.log(err);
 })
+
