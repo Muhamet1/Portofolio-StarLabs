@@ -45,10 +45,14 @@ fetch('https://localhost:7114/api/Projects').then((data)=>{
     let data1 = "";
 
     completedata.map((values)=>{
-        data1 += `<div>
-        <h1>${values.projectTitle}</h1>
-        <p>${values.projectSubTitle}</p>
-        <p>${values.projectDescription}</p>
+        data1 += `<div class="works__img">
+        <img src="${values.photoUrl}" alt="">
+        <div class="works__data">
+            <a href="https://github.com/Muhamet1/MVCProject" class="works__link"><i class="bx bx-link-alt"></i></a>
+            <span class="works__subtitle">${values.projectSubTitle}</span>
+            <span class="works__title">${values.projectTitle}</span>
+            <p class="works__description">${values.projectDescription}</p>
+        </div>
     </div>`
     });
     document.getElementById("api").innerHTML = data1;
@@ -57,3 +61,35 @@ fetch('https://localhost:7114/api/Projects').then((data)=>{
     console.log(err);
 })
 
+/*Post Request using fetch. Contact Form*/
+
+var form = document.getElementById('form')
+
+
+form.addEventListener('submit',function(e){
+    //auto submi
+   alert("Message sent successfully")
+    var name = document.getElementById('name').value
+    var email = document.getElementById('email').value
+    var message = document.getElementById('message').value
+
+    fetch("https://localhost:7114/api/Contacts", {
+        method:'POST',
+        body: JSON.stringify({
+            contactName:name,
+            contactEmail:email,
+            contactMessage:message
+        }),
+        headers:{
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(data){
+        console.log(data)
+    })
+
+})
