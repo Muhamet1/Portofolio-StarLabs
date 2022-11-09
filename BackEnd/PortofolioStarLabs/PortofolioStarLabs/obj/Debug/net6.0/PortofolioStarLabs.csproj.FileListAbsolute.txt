@@ -33,3 +33,6 @@ C:\Users\Admin\OneDrive\Desktop\Portofolio- StarLabs\Portofolio-StarLabs\BackEnd
 C:\Users\Admin\OneDrive\Desktop\Portofolio- StarLabs\Portofolio-StarLabs\BackEnd\PortofolioStarLabs\PortofolioStarLabs\obj\Debug\net6.0\PortofolioStarLabs.pdb
 C:\Users\Admin\OneDrive\Desktop\Portofolio- StarLabs\Portofolio-StarLabs\BackEnd\PortofolioStarLabs\PortofolioStarLabs\obj\Debug\net6.0\PortofolioStarLabs.genruntimeconfig.cache
 C:\Users\Admin\OneDrive\Desktop\Portofolio- StarLabs\Portofolio-StarLabs\BackEnd\PortofolioStarLabs\PortofolioStarLabs\obj\Debug\net6.0\ref\PortofolioStarLabs.dll
+C:\Users\Admin\OneDrive\Desktop\Portofolio- StarLabs\Portofolio-StarLabs\BackEnd\PortofolioStarLabs\PortofolioStarLabs\bin\Debug\net6.0\MediatR.dll
+C:\Users\Admin\OneDrive\Desktop\Portofolio- StarLabs\Portofolio-StarLabs\BackEnd\PortofolioStarLabs\PortofolioStarLabs\bin\Debug\net6.0\MediatR.Contracts.dll
+C:\Users\Admin\OneDrive\Desktop\Portofolio- StarLabs\Portofolio-StarLabs\BackEnd\PortofolioStarLabs\PortofolioStarLabs\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll

@@ -1,4 +1,6 @@
+using MediatR;
 using Microsoft.EntityFrameworkCore;
+using PortofolioStarLabs.Application.Projects;
 using PortofolioStarLabs.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +18,18 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        builder =>
+        {
+            builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+        });
+});
+
+
+builder.Services.AddMediatR(typeof(Get.Handler).Assembly);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,6 +42,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors();
 
 app.MapControllers();
 

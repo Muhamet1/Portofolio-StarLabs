@@ -36,3 +36,23 @@ function scrollActive(){
         }
     })
 }
+
+
+fetch('https://localhost:7114/api/Projects').then((data)=>{
+        return data.json();
+}).then((completedata)=>{
+
+    let data1 = "";
+
+    completedata.map((values)=>{
+        data1 += `<div>
+        <h1>${values.projectTitle}</h1>
+        <p>${values.projectSubTitle}</p>
+        <p>${values.projectDescription}</p>
+    </div>`
+    });
+    document.getElementById("api").innerHTML = data1;
+
+}).catch((err)=>{
+    console.log(err);
+})
