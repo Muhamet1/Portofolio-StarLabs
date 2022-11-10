@@ -73,6 +73,10 @@ namespace PortofolioStarLabs.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("projectLink")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("projectSubTitle")
                         .IsRequired()
                         .HasColumnType("longtext");

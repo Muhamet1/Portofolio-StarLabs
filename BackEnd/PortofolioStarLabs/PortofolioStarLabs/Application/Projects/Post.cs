@@ -12,6 +12,7 @@ namespace PortofolioStarLabs.Application.Projects
             public string projectTitle { get; set; }
             public string projectSubTitle { get; set; }
             public string projectDescription { get; set; }
+            public string projectLink { get; set; }
             public IFormFile File { get; set; }
         }
 
@@ -35,6 +36,7 @@ namespace PortofolioStarLabs.Application.Projects
                     projectTitle = request.projectTitle,
                     projectSubTitle = request.projectSubTitle,
                     projectDescription = request.projectDescription,
+                    projectLink = request.projectLink,
                     PhotoNum = photoResult.PublicId,
                     PhotoUrl = photoResult.Url
                 };

@@ -10,7 +10,7 @@ using PortofolioStarLabs.Persistence;
 namespace PortofolioStarLabs.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221109142829_InitialCreate")]
+    [Migration("20221110112701_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -19,6 +19,29 @@ namespace PortofolioStarLabs.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("PortofolioStarLabs.Models.Contact", b =>
+                {
+                    b.Property<int>("contactId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("contactEmail")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("contactMessage")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("contactName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("contactId");
+
+                    b.ToTable("Contacts");
+                });
 
             modelBuilder.Entity("PortofolioStarLabs.Models.Photo", b =>
                 {
@@ -49,6 +72,10 @@ namespace PortofolioStarLabs.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("projectDescription")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("projectLink")
                         .IsRequired()
                         .HasColumnType("longtext");
 
