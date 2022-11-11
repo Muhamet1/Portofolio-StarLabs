@@ -74,6 +74,34 @@ video {
   z-index: -1;
 }
 
+
+/**SCROOLL DELAY **/
+
+.reveal {
+  position: relative;
+  opacity: 0;
+}
+
+.reveal.active {
+  opacity: 1;
+}
+.active.fade-bottom {
+  animation: fade-bottom 1.2s ease-in;
+}
+
+@keyframes fade-bottom {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/******/
+
 h1,
 h2,
 h3,
@@ -608,7 +636,7 @@ button:hover {
 
 .footer__copy {
   font-size: var(--smaller-font-size);
-  color: var(--text-color);
+  color: rgb(145, 144, 144);
 }
 
 /*media queryess */
@@ -644,7 +672,7 @@ button:hover {
   }
   .education__time {
     padding: 0 2rem;
-  }
+  } 
 }
 
 @media screen and (min-width: 1024px) {
@@ -660,8 +688,6 @@ button:hover {
   .about__description {
     font-size: 17.5px;
   }
-
-
 
   .l-header {
     width: 0;
