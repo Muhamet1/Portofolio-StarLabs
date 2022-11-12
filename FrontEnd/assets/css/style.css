@@ -86,7 +86,7 @@ video {
   opacity: 1;
 }
 .active.fade-bottom {
-  animation: fade-bottom 1.2s ease-in;
+  animation: fade-bottom 1s ease-in;
 }
 
 @keyframes fade-bottom {
@@ -226,7 +226,7 @@ img {
 .active {
   color: var(--text-color);
 }
-
+/***********/
 .home__container {
   height: calc(100vh - var(--header-height));
   align-items: center;
@@ -260,7 +260,7 @@ img {
 }
 .home__proffesion {
   font-size: 25px;
-  color: rgb(193, 189, 189);
+  color: rgb(234, 229, 229);
   margin-bottom: var(--mb-5);
 }
 
