@@ -41,6 +41,7 @@ function scrollActive() {
   });
 }
 
+/*Fetch API Projects */
 fetch("https://localhost:7114/api/Projects")
   .then((data) => {
     return data.json();
@@ -70,7 +71,6 @@ fetch("https://localhost:7114/api/Projects")
 var form = document.getElementById("form");
 
 form.addEventListener("submit", function (e) {
-  
   var name = document.getElementById("name").value;
   var email = document.getElementById("email").value;
   var message = document.getElementById("message").value;
@@ -92,12 +92,11 @@ form.addEventListener("submit", function (e) {
     })
     .then(function (data) {
       console.log(data);
-    }).then(alert("Message sent succesfully"))
+    })
+    .then(alert("Message sent succesfully"));
 });
 
-
-
-/*SCROLLL DELAY ********/
+/*SCROLL DELAY ********/
 
 function reveal() {
   var reveals = document.querySelectorAll(".reveal");
@@ -116,5 +115,3 @@ function reveal() {
 }
 
 window.addEventListener("scroll", reveal);
- 
-  

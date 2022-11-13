@@ -74,7 +74,6 @@ video {
   z-index: -1;
 }
 
-
 /**SCROOLL DELAY **/
 
 .reveal {
@@ -278,7 +277,7 @@ img {
   transition: 0.3s;
 }
 .home__social-link:hover {
-  background-color: var(--first-color-dark);
+  background-color: #fa8162;
 }
 
 .button {
@@ -290,8 +289,8 @@ img {
   border-radius: 0.5rem;
   transition: 0.3s;
 }
-button:hover {
-  background-color: var(--first-color-dark);
+.button:hover {
+  background-color: #f77353;
 }
 
 .home__button {
@@ -535,7 +534,7 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #e46545;
+  background-color: var(--first-color);
   border-radius: 0.5rem;
   transition: 0.3s;
 }
@@ -561,8 +560,8 @@ button:hover {
 }
 
 .works__subtitle {
-  font-size: var(--h4-font-size);
-  color: rgb(78, 76, 76);
+  font-size: 18px;
+  color: var(--text-color);
   font-weight: bold;
 }
 
@@ -672,7 +671,7 @@ button:hover {
   }
   .education__time {
     padding: 0 2rem;
-  } 
+  }
 }
 
 @media screen and (min-width: 1024px) {
